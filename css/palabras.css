@@ -1,0 +1,473 @@
+:root {
+    --primary-color: #f8f6ff;
+    --secondary-color: #f7cac9; /* Rosa pastel */
+    --light-color: #3a2c4b;
+    --dark-color: #f9e7b4; /* Amarillo pastel */
+    --accent-color: #b5d8f8; /* Celeste pastel */
+    --glass-bg: rgba(255,255,255,0.7);
+    --glass-border: rgba(200,200,200,0.25);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f7cac9 0%, #b5d8f8 100%);
+    color: var(--light-color);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: var(--glass-bg);
+    padding: 2rem 1rem;
+    border-right: 1.5px solid var(--glass-border);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-title {
+    font-family: 'Playfair Display', serif;
+    color: #e75480;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 1rem;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 0.5rem;
+}
+
+.menu a {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: var(--light-color);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.5);
+}
+
+.menu a:hover, .menu a.active {
+    background: linear-gradient(90deg, #f7cac9 0%, #b5d8f8 100%);
+    color: #e75480;
+    transform: translateX(10px);
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+.content-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.content-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #e75480;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.content-header p {
+    color: #6d5c7b;
+    font-size: 1.2rem;
+}
+
+/* Sections */
+.section-container {
+    display: none;
+    background: var(--glass-bg);
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px #b5d8f822;
+    border: 1.5px solid var(--glass-border);
+}
+
+.section-container.active-section {
+    display: block;
+}
+
+.section-container h2 {
+    font-family: 'Playfair Display', serif;
+    color: #e75480;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Love Messages */
+.love-message {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.poema, .nota {
+    background: rgba(255,255,255,0.8);
+    padding: 1.5rem;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px #b5d8f822;
+    transition: transform 0.3s ease;
+}
+
+.poema:hover, .nota:hover {
+    transform: translateY(-5px);
+}
+
+.poema h3, .nota h3 {
+    color: #e75480;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+
+.poema p, .nota p {
+    color: #6d5c7b;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.poema-cita {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #a05c9e;
+    background: linear-gradient(120deg, #fff6fa 70%, #f7cac9 100%);
+    border-left: 6px solid #e75480;
+    border-radius: 18px;
+    margin: 2rem 0 1.5rem 0;
+    padding: 1.5rem 2.5rem 1.2rem 2.5rem;
+    box-shadow: 0 4px 24px #e7548033, 0 2px 8px #b5d8f855;
+    position: relative;
+    transition: box-shadow 0.3s, transform 0.3s;
+    text-align: left;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.poema-cita p {
+    margin: 0 0 1rem 0;
+    font-style: italic;
+    font-weight: 500;
+    color: #b85c9e;
+}
+.poema-cita footer {
+    text-align: right;
+    font-size: 1rem;
+    color: #e75480;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+.poema-cita.especial {
+    background: linear-gradient(120deg, #fff6fa 60%, #ffe6e6 100%);
+    border-left: 8px solid #b5d8f8;
+    animation: resplandor 2.5s infinite alternate;
+}
+@keyframes resplandor {
+    0% { box-shadow: 0 4px 24px #e7548033, 0 2px 8px #b5d8f855; }
+    100% { box-shadow: 0 8px 32px #b5d8f8cc, 0 4px 16px #e7548033; }
+}
+
+/* Canciones */
+.cancion-con-imagen {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    background: rgba(255,255,255,0.92);
+    padding: 2.2rem 1.5rem;
+    border-radius: 32px;
+    box-shadow: 0 8px 32px 0 #b5d8f855, 0 2px 8px #e7548033;
+    border: 2.5px solid var(--accent-color);
+    align-items: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.cancion-con-imagen:hover {
+    box-shadow: 0 16px 48px #e7548033, 0 4px 16px #b5d8f855;
+    transform: translateY(-4px) scale(1.01);
+}
+.imagen-circular {
+    width: 180px;
+    height: 180px;
+    min-width: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 24px #e7548033, 0 2px 8px #b5d8f855;
+    border: 4px solid #e75480;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.contenido-cancion {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.contenido-cancion h3 {
+    color: #e75480;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+}
+.reproductor-spotify {
+    margin-bottom: 0.5rem;
+}
+.letra-cancion {
+    background: rgba(247,202,201,0.18);
+    border-radius: 18px;
+    padding: 1.2rem 1rem;
+    color: #6d5c7b;
+    font-size: 1.13rem;
+    line-height: 1.7;
+    box-shadow: 0 2px 8px #b5d8f822;
+    margin-top: 0.5rem;
+    max-height: 260px;
+    overflow-y: auto;
+    border: 1.5px solid #b5d8f8;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center;
+    background: linear-gradient(135deg, #fff6fa 60%, #f7cac9 100%);
+    border: 2.5px solid #e75480;
+    box-shadow: 0 8px 32px #e7548033, 0 2px 8px #b5d8f855;
+}
+.letra-cancion p {
+    margin-bottom: 0.7em;
+    font-size: 1.18rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #b85c9e;
+    text-shadow: 0 2px 8px #f7cac9cc;
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    display: inline-block;
+    padding: 0.3em 1.2em;
+    border: 1.5px solid #b5d8f8;
+    box-shadow: 0 1px 4px #e7548033;
+}
+.letra-cancion .verso-karaoke {
+    color: #e75480;
+    background: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+    transition: background 0.3s, color 0.3s;
+    box-shadow: 0 1px 4px #e7548033;
+    text-shadow: 0 2px 8px #f7cac9cc;
+}
+
+/* Emociones */
+.emocion-opciones {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.emocion-btn {
+    background: linear-gradient(90deg, #f7cac9 0%, #b5d8f8 100%);
+    color: #3a2c4b;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.emocion-btn:hover, .emocion-btn.active {
+    background: linear-gradient(90deg, #b5d8f8 0%, #f7cac9 100%);
+    color: #e75480;
+    transform: translateY(-3px);
+}
+
+.emocion-contenido {
+    background: rgba(255,255,255,0.8);
+    padding: 1.5rem;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px #b5d8f822;
+}
+
+.emocion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.emocion-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Footer */
+.main-footer {
+    background: var(--glass-bg);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    box-shadow: 0 -8px 32px 0 #b5d8f855;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(90deg, #f7cac9 0%, #b5d8f8 100%);
+    color: #3a2c4b;
+    text-decoration: none;
+    border-radius: 18px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(90deg, #b5d8f8 0%, #f7cac9 100%);
+    color: #e75480;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1.5px solid var(--glass-border);
+    }
+    
+    .content {
+        margin-left: 0;
+    }
+    
+    .cancion-con-imagen {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.2rem 0.5rem;
+        border-radius: 18px;
+    }
+    
+    .imagen-circular {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+    
+    .contenido-cancion {
+        text-align: center;
+        gap: 0.8rem;
+    }
+    
+    .letra-cancion {
+        font-size: 1rem;
+        padding: 0.7rem 0.5rem;
+        max-height: 180px;
+    }
+    
+    .emocion-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* Mejoras para la vista de canciones en PC */
+@media (min-width: 769px) {
+    .love-message {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    .cancion-con-imagen {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 8px 32px #b5d8f855;
+        border: 2px solid var(--accent-color);
+        background: rgba(255,255,255,0.85);
+        transition: box-shadow 0.3s;
+    }
+    .cancion-con-imagen:hover {
+        box-shadow: 0 12px 40px #e7548033;
+    }
+    .imagen-circular {
+        width: 180px;
+        height: 180px;
+        margin-right: 2rem;
+    }
+    .contenido-cancion {
+        flex: 1;
+        text-align: left;
+    }
+    .letra-cancion {
+        max-width: 500px;
+        margin: 0 auto;
+        font-size: 1.08rem;
+    }
+    .reproductor-audio audio {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+#prev-nota, #next-nota {
+    background: linear-gradient(90deg, #f7cac9 0%, #b5d8f8 100%);
+    color: #e75480;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin: 0 0.5rem;
+    box-shadow: 0 2px 8px #b5d8f822;
+    letter-spacing: 1px;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+    border: 2px solid #e75480;
+}
+#prev-nota:hover, #next-nota:hover {
+    background: linear-gradient(90deg, #b5d8f8 0%, #f7cac9 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px #e7548033;
+    transform: scale(1.07) translateY(-2px);
+}

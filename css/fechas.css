@@ -1,0 +1,194 @@
+:root {
+    --primary-color: #f8f6ff;
+    --secondary-color: #f7cac9;
+    --light-color: #3a2c4b;
+    --dark-color: #f9e7b4;
+    --accent-color: #b5d8f8;
+    --glass-bg: rgba(255,255,255,0.7);
+    --glass-border: rgba(200,200,200,0.25);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f7cac9 0%, #b5d8f8 100%);
+    color: var(--light-color);
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(rgba(247,202,201,0.7), rgba(185,216,248,0.7));
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 8px 32px 0 #b5d8f855;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #e75480;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #6d5c7b;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.section-container {
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+    background: var(--glass-bg);
+    border-radius: 24px;
+    box-shadow: 0 4px 16px #b5d8f822;
+    border: 1.5px solid var(--glass-border);
+    max-width: 900px;
+}
+
+.section-container h2 {
+    font-family: 'Playfair Display', serif;
+    color: #e75480;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.add-date-area {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+input[type="date"], input[type="text"] {
+    padding: 0.8rem;
+    border: 1.5px solid #f7cac9;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.7);
+    color: #3a2c4b;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px #b5d8f822;
+}
+
+input[type="date"] {
+    min-width: 200px;
+}
+
+input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #b5d8f8;
+    box-shadow: 0 0 12px #b5d8f855;
+}
+
+button {
+    background: linear-gradient(90deg, #f7cac9 0%, #b5d8f8 100%);
+    color: #3a2c4b;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px #b5d8f822;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #b5d8f8 0%, #f7cac9 100%);
+    color: #e75480;
+    box-shadow: 0 4px 16px #e7548033;
+}
+
+.dates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.date-card {
+    background: var(--glass-bg);
+    border-radius: 18px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 16px #b5d8f822;
+    border: 1.5px solid var(--glass-border);
+}
+
+.date-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px #e7548033;
+}
+
+.date-info {
+    margin-bottom: 1rem;
+}
+
+.date-info h3 {
+    color: #e75480;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+}
+
+.date-info p {
+    color: #6d5c7b;
+    font-size: 0.98rem;
+}
+
+.delete-btn {
+    background: #e75480;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background: #b85c9e;
+}
+
+footer {
+    background: var(--glass-bg);
+    color: #3a2c4b;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    box-shadow: 0 -8px 32px 0 #b5d8f855;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .section-container {
+        padding: 1rem 0.3rem;
+        border-radius: 12px;
+    }
+    .dates-container {
+        grid-template-columns: 1fr;
+    }
+    .add-date-area {
+        flex-direction: column;
+    }
+    input[type="date"], input[type="text"] {
+        width: 100%;
+    }
+} 

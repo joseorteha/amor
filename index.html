@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José e Ingrid - Nuestra Historia</title>
+    <link rel="stylesheet" href="/css/incio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/icon/sesion.ico">
+</head>
+<body>
+
+    <!-- Mensaje de bienvenida -->
+    <div id="welcome-message" class="welcome-overlay">
+        <div class="welcome-content">
+            <h1>Nuestra Historia de Amor</h1>
+            <p class="welcome-main">Desde aquel día en Papelería Guerrero...</p>
+            <p class="welcome-sub">Todo comenzó cuando llegué a trabajar a la papelería, y aunque ya te había visto antes, ese día fue especial.</p>
+            <p class="welcome-sub">El 11 de enero del 2023 marcó el inicio de nuestra hermosa relación, y desde entonces cada momento contigo ha sido único.</p>
+            <p class="welcome-sub">He creado este espacio especial para recordar todos esos momentos que hemos compartido juntos.</p>
+            <p class="welcome-sub">Espero que te guste mi amor...</p>
+            <button id="continue-btn" class="welcome-btn">Continuar</button>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Nuestro Rincón Especial</h1>
+            <p class="subtitle">Ingresa para descubrir más</p>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Tu nombre mi amor: (Pista: Empieza con I y termina con D)</label>
+                    <input type="text" id="username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Contraseña: <b> (Es la fecha especial de nuestra relación)</b></label>
+                    <input type="password" id="password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Ingresar</button>
+            </form>
+            
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+
+    <script src="/js/inicio.js"></script>
+</body>
+</html>

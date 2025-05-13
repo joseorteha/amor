@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serpiente Romántica</title>
+    <link rel="stylesheet" href="/css/juego.css">
+    <link rel="icon" href="/icon/juego.ico">
+</head>
+<body class="theme-dark">
+    <div class="container">
+        <!-- Pantalla de Menú -->
+        <div id="menu-screen" class="screen">
+            <h1>❤️ Serpiente Romántica ❤️</h1>
+            <h4>*Recomendable jugar en laptop o pc</h4>
+            <div class="config-section">
+                <div class="option-group">
+                    <h3>Color del Tema</h3>
+                    <div class="options">
+                        <button id="theme-dark" class="option-btn selected">Negro</button>
+                        <button id="theme-love" class="option-btn">Amoroso</button>
+                        <button id="theme-emerald" class="option-btn">Esmeralda</button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <h3>Dificultad</h3>
+                    <div class="options">
+                        <button id="difficulty-easy" class="option-btn selected">Fácil</button>
+                        <button id="difficulty-medium" class="option-btn">Mediano</button>
+                        <button id="difficulty-hard" class="option-btn">Difícil</button>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <h3>Música</h3>
+                    <div class="music-controls">
+                        <button id="play-music">▶</button>
+                        <button id="stop-music">■</button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="start-btn" class="play-btn">Jugar ►</button>
+            <button id="back-btn" class="control-btn">Regresar a "Tú y Yo"</button>
+        </div>
+
+        <!-- Pantalla de Juego -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="score">❤️ <span id="score">0</span></div>
+                <div class="controls">
+                    <button id="restart-btn" class="control-btn">Reiniciar</button>
+                    <button id="exit-btn" class="control-btn">Salir</button>
+                </div>
+            </div>
+
+            <canvas id="game-canvas" width="600" height="400"></canvas>
+
+            <!-- Controles móviles -->
+            <div class="mobile-controls">
+                <div class="arrow-up" id="up-btn">↑</div>
+                <div class="arrow-left" id="left-btn">←</div>
+                <div class="arrow-down" id="down-btn">↓</div>
+                <div class="arrow-right" id="right-btn">→</div>
+            </div>
+
+            <!-- Notitas que aparecen al comer -->
+            <div id="notes-container"></div>
+        </div>
+
+        <!-- Pantalla de Game Over -->
+        <div id="game-over-screen" class="screen hidden">
+            <h2>¡Fin del Juego!</h2>
+            <p>Puntuación Final: <span id="final-score">0</span></p>
+            
+            <div class="buttons">
+                <button id="play-again-btn" class="play-btn">Jugar de Nuevo ►</button>
+                <button id="menu-btn" class="control-btn">Menú Principal</button>
+            </div>
+        </div>
+
+        <!-- Mensajes especiales cada 6 puntos -->
+        <div id="special-message" class="hidden"></div>
+    </div>
+
+    <!-- Elementos de audio -->
+    <audio id="game-music" loop></audio>
+    <audio id="eat-sound" src="/music/eat.mp3" preload="auto"></audio>
+    
+    <script src="/js/juego.js"></script>
+</body>
+</html>

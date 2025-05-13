@@ -1,0 +1,491 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #FFB6C1; /* Rosa más suave */
+    --accent-color: #FF69B4; /* Rosa medio */
+    --light-color: #f8f8f8;
+    --dark-color: none;
+    --error-color: #ff3333;
+    --overlay-gradient: linear-gradient(135deg, rgba(255, 182, 193, 0.95), rgba(255, 105, 180, 0.95));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('/img/fondo_romantico.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    position: relative;
+    z-index: 1;
+}
+
+.login-box {
+    background: rgba(255,255,255,0.82);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    border: 1.5px solid rgba(200,200,200,0.25);
+    padding: 44px 32px 32px 32px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.login-box h1 {
+    color: #3a2c4b;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #fff6, 0 0px 2px #bdbdbd;
+}
+
+.subtitle {
+    color: #6d5c7b;
+    margin-bottom: 24px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-shadow: 0 1px 8px #fff3;
+}
+
+.input-group label {
+    color: #6d5c7b;
+    font-weight: 500;
+    margin-bottom: 7px;
+    text-shadow: 0 1px 8px #fff3;
+}
+
+.input-group input {
+    background: rgba(255,255,255,0.7);
+    border: 1.5px solid #d1cfcf;
+    border-radius: 12px;
+    color: #3a2c4b;
+    font-size: 1rem;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    transition: border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px #bdbdbd22;
+}
+.input-group input:focus {
+    outline: none;
+    border: 2px solid #bdbdbd;
+    box-shadow: 0 0 12px #bdbdbd55;
+}
+
+.login-btn {
+    background: linear-gradient(90deg, #f7cac9 0%, #f9e7b4 100%);
+    color: #3a2c4b;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 0;
+    width: 90%;
+    margin-top: 10px;
+    box-shadow: 0 2px 12px #bdbdbd55;
+    transition: background 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.login-btn::after {
+    content: '';
+    position: absolute;
+    left: -75%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #fff8, transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+}
+.login-btn:hover::after {
+    left: 120%;
+}
+.login-btn:hover {
+    background: linear-gradient(90deg, #f9e7b4 0%, #f7cac9 100%);
+    box-shadow: 0 4px 24px #bdbdbd55;
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    display: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la página principal (se cargarán después del login) */
+.main-page {
+    display: none;
+}
+
+/* Overlay de bienvenida mejorado */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8e1f4 0%, #c1eaff 100%);
+    backdrop-filter: blur(8px) brightness(0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 1.5s forwards;
+    overflow: hidden;
+}
+
+.welcome-content {
+    background: rgba(255,255,255,0.25);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-top: 2px solid #ffb6c1;
+    border-bottom: 2px solid #ffd700;
+    padding: 48px 36px 36px 36px;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.7rem;
+    color: #e75480;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #fff6, 0 0px 2px #e75480;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.welcome-content h1 .heart-anim {
+    font-size: 2.2rem;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    20% { transform: scale(1.2); }
+    40% { transform: scale(0.95); }
+    60% { transform: scale(1.15); }
+    80% { transform: scale(0.98); }
+}
+
+.welcome-main {
+    font-size: 1.3rem;
+    color: #b85c9e;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.welcome-sub {
+    color: #444;
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    text-shadow: 0 1px 8px #fff3;
+}
+
+.welcome-btn {
+    padding: 14px 40px;
+    background: linear-gradient(90deg, #ffb6c1 0%, #ffd700 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 18px;
+    box-shadow: 0 2px 12px #ffd70055;
+    transition: background 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.welcome-btn::after {
+    content: '';
+    position: absolute;
+    left: -75%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #fff8, transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+}
+.welcome-btn:hover::after {
+    left: 120%;
+}
+.welcome-btn:hover {
+    background: linear-gradient(90deg, #ffd700 0%, #ffb6c1 100%);
+    box-shadow: 0 4px 24px #e7548055;
+}
+
+/* Partículas de corazones */
+.heart-particle {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.5rem;
+    opacity: 0.7;
+    animation: floatHeart 6s linear infinite;
+}
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) scale(0.7) rotate(-10deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.2) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+/* Brillos animados */
+.welcome-content::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px; right: -40px; bottom: -40px;
+    background: radial-gradient(circle, #fff7 0%, transparent 70%);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+    animation: shine 4s linear infinite;
+}
+@keyframes shine {
+    0% { opacity: 0.12; }
+    50% { opacity: 0.22; }
+    100% { opacity: 0.12; }
+}
+
+/* Botón de reset */
+.reset-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #ff3333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    font-family: 'Roboto', sans-serif;
+}
+
+.reset-button:hover {
+    background: #ff5555;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Efectos de corazones */
+.heart {
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.falling-heart {
+    position: absolute;
+    animation: falling linear infinite;
+    top: -50px;
+    z-index: 10;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+@keyframes falling {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Ajustes según tema */
+body.theme-love .welcome-btn {
+    background: linear-gradient(135deg, #ff4081, #ff85b3);
+    border-color: #ff4081;
+}
+
+body.theme-emerald .welcome-btn {
+    background: linear-gradient(135deg, #2e8b57, #4ecca3);
+    border-color: #2e8b57;
+}
+
+@media (max-width: 600px) {
+    .login-box {
+        padding: 18px 4vw 12px 4vw;
+        border-radius: 14px;
+        max-width: 98vw;
+    }
+    .login-box h1 {
+        font-size: 1.1rem;
+    }
+    .login-btn {
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
+    .welcome-content {
+        padding: 18px 4vw 12px 4vw;
+        max-width: 98vw;
+        border-radius: 16px;
+    }
+    .welcome-content h1 {
+        font-size: 1.3rem;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+    .welcome-main {
+        font-size: 1.05rem;
+    }
+    .welcome-sub {
+        font-size: 0.98rem;
+    }
+    .welcome-btn {
+        font-size: 1rem;
+        padding: 10px 12px;
+        width: 90%;
+        min-width: 120px;
+        margin-top: 12px;
+    }
+    .welcome-overlay {
+        align-items: flex-start;
+        padding-top: 10vh;
+    }
+}
+
+nav {
+    width: 100vw;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 2px 12px #e7548033;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+}
+.menu-toggle {
+    display: none;
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #f7cac9 60%, #b5d8f8 100%);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+    color: #e75480;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #e7548033;
+    z-index: 200;
+    transition: background 0.3s, color 0.3s;
+}
+.menu-toggle:active {
+    background: linear-gradient(135deg, #b5d8f8 60%, #f7cac9 100%);
+    color: #fff;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    padding: 1.1rem 0 1.1rem 0;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    background: none;
+    position: static;
+    width: auto;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+}
+nav ul li a {
+    color: #e75480;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 16px;
+    transition: background 0.3s, color 0.3s;
+}
+nav ul li a:hover, nav ul li a.active {
+    background: linear-gradient(90deg, #f7cac9 0%, #b5d8f8 100%);
+    color: #fff;
+}
+@media (max-width: 800px) {
+    .menu-toggle {
+        display: block;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        background: rgba(255,255,255,0.97);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100vw;
+        padding: 1.2rem 0 1.2rem 0;
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        box-shadow: 0 2px 12px #e7548033;
+        display: none;
+        z-index: 150;
+        animation: fadeInMenu 0.3s;
+    }
+    nav ul.open {
+        display: flex;
+    }
+}
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

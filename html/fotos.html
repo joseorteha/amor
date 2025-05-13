@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Fotos - Nuestro Mundo</title>
+    <link rel="stylesheet" href="/css/fotos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/icon/icono.ico">
+</head>
+<body>
+    <header>
+        <h1>Galería de Fotos</h1>
+        <p>Guarda aquí nuestros recuerdos más especiales</p>
+    </header>
+    <main>
+        <section class="section-container">
+            <h2>Nuestros Momentos</h2>
+            <div class="view-switcher">
+                <button id="grid-view-btn" class="active">Cuadrícula</button>
+                <button id="list-view-btn">Lista</button>
+            </div>
+            <div id="galeria-fija" class="gallery">
+                <!-- Las imágenes fijas se insertarán aquí -->
+            </div>
+            <div class="upload-area">
+                <input type="file" id="photo-upload" accept="image/*" multiple>
+                <label for="photo-upload" class="upload-button">Guardar Nuestros Momentos</label>
+                <input type="text" id="photo-description" placeholder="¿Qué recuerdo especial quieres guardar?">
+                <button id="add-photo-btn" type="button">Guardar Recuerdo</button>
+            </div>
+            <div id="photo-gallery" class="gallery"></div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Creado con ❤️ para nuestra historia de amor</p>
+        </div>
+    </footer>
+    <div id="modal-foto" class="modal-foto">
+        <span class="close-modal">&times;</span>
+        <img class="modal-img" src="" alt="Foto grande">
+        <div class="modal-desc"></div>
+        <button class="modal-prev">&#8592;</button>
+        <button class="modal-next">&#8594;</button>
+    </div>
+    <script src="/js/fotos.js"></script>
+</body>
+</html> 
